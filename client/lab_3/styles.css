@@ -5,8 +5,10 @@
 }
 
 .top {
-    color: black;
-    background-color: lightblue;
+    text-align: left;
+    padding: 10px;
+    background: #4da2a2;
+    font-weight: bold;
 }
 
 .menu-container {
@@ -49,8 +51,8 @@
 }
 
 .project,.git {
-    display: flex;
-    align-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 
 .photo-grid-container {
