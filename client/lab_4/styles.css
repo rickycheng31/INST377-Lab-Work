@@ -58,30 +58,48 @@
 .photo-grid-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+
 }
 
- .carousel {
-    width: 500px;
-    display: flex;
-    justify-content: center;
+.carousel {
+    overflow: hidden;
+    max-width: 600px;
+    position: relative;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     align-items: center;
 }
 
-.carousel-item{
-    border: 1px solid #fff;
+.carousel .carousel_item,
+.carousel .carousel_item--hidden {
     display: none;
 }
 
-.carousel-item.visible {
+.carousel .carousel_item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.carousel .carousel_item--visible {
     display: block;
 }
 
-.carousel .carousel-item img {
-    width: 500px;
-    height: auto;
+.carousel .carousel_actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel .carousel_actions button {
+    border-radius: 50px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
 }
 
 .first-item {
@@ -92,13 +110,6 @@
     order: -1
 }
 
-button.next,button.previous {
-    border-radius: 50px;
-    border: 0;
-    font-weight: bold;
-    cursor: pointer;
-    width: 40px;
-}
 
 .footer {
     display: flex;
