@@ -1,6 +1,11 @@
-const first = document.querySelector(".carousel-item.visible");
-const last = document.querySelector(".carousel-item:last-of-type");
+const e = require("express");
 
-let current = first;
+let slidePosition = 0;
+const slides = document.querySelector('carousel_item');
+const totalSlides = slides.length;
 
-document.querySelector()
+
+document.
+    querySelector('#next-button').addEventListener("click", function() {
+  moveToNextSlide();
+});
