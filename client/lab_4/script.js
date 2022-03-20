@@ -2,12 +2,12 @@ let slidePosition = 0;
 const slides = document.querySelectorAll('.carousel_item');
 const totalSlides = slides.length;
 
-document.querySelector("#next-button").onclick = (e) => {
+document.querySelector(".next-button").onclick = (e) => {
   // eslint-disable-next-line no-use-before-define
   moveToNextSlide();
 };
 
-document.querySelector("#previous-button").onclick = (e) => {
+document.querySelector(".previous-button").onclick = (e) => {
   // eslint-disable-next-line no-use-before-define
   moveToPreviousSlide();
 };
@@ -40,3 +40,9 @@ function moveToPreviousSlide() {
   }
   updateSlidePosition();
 }
+
+const button = document.querySelector('.buttons');
+
+button.addEventListener('click', () => {
+  button.classList.add('.active');
+});
