@@ -90,6 +90,7 @@
     border-radius: 10px;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
     
 }
 
@@ -99,7 +100,7 @@
     transition: .5s;
 }
 
-.previous-button:active, .active, .next-button:active, .active {
+.previous-button:active, .next-button:active {
     border: 2px solid green;
     background-color: orange;
 
