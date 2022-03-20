@@ -40,9 +40,3 @@ function moveToPreviousSlide() {
   }
   updateSlidePosition();
 }
-
-const button = document.querySelector('.buttons');
-
-button.addEventListener('click', () => {
-  button.classList.add('.active');
-});
