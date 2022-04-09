@@ -1,11 +1,13 @@
 function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  const newMin = Math.ceil(min);
+  const newMax = Math.floor(max);
+  return Math.floor(
+    Math.random() * (newMax - newMin + 1) + newMin
+  ); // The maximum is inclusive and the minimum is inclusive
 }
 
 function dataHandler(dataArray) {
-  console.log('fired dataHandler')
+  console.log('fired dataHandler');
   console.table(dataArray);
   const range = [...Array(15).keys()];
   range.forEach((item) => {
@@ -17,13 +19,17 @@ async function mainEvent() { // the async keyword means we can make API requests
   console.log('script loaded');
   const form = document.querySelector('.box');
   const submit = document.querySelector('.is-primary');
+  submit.style.display = 'none';
+
   const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
+  console.log(arrayFromJson);
+
   if (arrayFromJson.data.length > 0) {
+    submit.style.display = 'block';
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
       console.log('form submission'); // this is substituting for a "breakpoint" 
-      submit.style.display = 'block';
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
       dataHandler(arrayFromJson.data);
