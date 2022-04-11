@@ -19,14 +19,14 @@ function restoArrayMaker(dataArray) {
 }
 
 function createHtmlList(collection) {
-  console.log('fired HTML creator');
-  console.log(collection);
+  // console.log('fired HTML creator');
+  // console.log(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
     const {name} = item;
     const displayName = name.toLowerCase();
-    const injectThisItem = `<li>${item.name}</li>`;
+    const injectThisItem = `<li>${displayName}</li>`;
     targetList.innerHTML += injectThisItem;
   });
 }
@@ -54,9 +54,13 @@ async function mainEvent() { // the async keyword means we can make API requests
         return;
       }
 
-      const selectResto = currentArray.filter((item) => item.name.includes(event.target.value));
-      createHtmlList(selectResto);
-      // console.log(matchResto);
+      const selectResto = currentArray.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
+      console.log(selectResto);
+      // createHtmlList(selectResto);
     });
 
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
@@ -65,6 +69,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
       currentArray = restoArrayMaker(arrayFromJson.data);
+      console.log(currentArray);
       createHtmlList(currentArray);
     });
   }
